@@ -1,0 +1,94 @@
+Part I - Does it work to select name from nba player data?
+
+request = MySqliteRequest.new
+request = request.from('nba_player_data.csv')
+request = request.select('name')
+request.run
+
+
+Part I - Does it work to select name from nba player data with a where?
+
+request = MySqliteRequest.new
+request = request.from('nba_player_data.csv')
+request = request.select('name')
+request = request.where('college', 'University of California')
+request.run
+
+
+
+Part I - Does it work to select name from nba player data with multiple where?
+
+request = MySqliteRequest.new
+request = request.from('nba_player_data.csv')
+request = request.select('name')
+request = request.where('college', 'University of California')
+request = request.where('year_start', '1997')
+request.run
+
+
+
+Part I - Does it work to insert a nba player?
+
+request = MySqliteRequest.new
+request = request.insert('nba_player_data.csv')
+request = request.values('name' => 'Alaa Abdelnaby', 'year_start' => '1991', 'year_end' => '1995', 'position' => 'F-C', 'height' => '6-10', 'weight' => '240', 'birth_date' => "June 24, 1968", 'college' => 'Duke University')
+request.run
+
+
+
+Part I - Does it work to update a nba player?
+
+request = MySqliteRequest.new
+request = request.update('nba_player_data.csv')
+request = request.values('name' => 'Alaa Renamed')
+request = request.where('name', 'Alaa Abdelnaby')
+request.run
+
+
+
+Part I - Does it work to delete a nba player?
+
+request = MySqliteRequest.new
+request = request.delete()
+request = request.from('nba_player_data.csv')
+request = request.where('name', 'Alaa Abdelnaby')
+request.run
+
+
+
+
+
+
+
+Part II - Can you run this request in the CLI?
+
+SELECT * FROM students
+
+
+
+
+
+Part II - Can you run this request in the CLI?
+
+SELECT name,email FROM students WHERE name = 'Mila'
+
+
+
+
+Part II - Can you run this request in the CLI?
+
+INSERT INTO students VALUES (John,john@johndoe.com,A,https://blog.johndoe.com)
+
+
+
+
+
+Part II - Can you run this request in the CLI?
+
+UPDATE students SET email = 'jane@janedoe.com', blog = 'https://blog.janedoe.com' WHERE name = 'Mila'
+
+
+
+Part II - Can you run this request in the CLI?
+
+DELETE FROM students WHERE name = 'John'
